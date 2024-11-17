@@ -4,6 +4,7 @@ import com.xpe.desafio_final.data.domain.Address;
 import com.xpe.desafio_final.data.enumeration.PersonTypeEnum;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -27,6 +28,6 @@ public class PersonDTO {
 
     private Address personAddress;
 
-    @NotEmpty(message = "{person.type.not.empty}")
+    @NotNull(message = "{person.type.not.null}")
     private PersonTypeEnum personType;
 }

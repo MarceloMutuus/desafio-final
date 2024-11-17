@@ -3,6 +3,7 @@ package com.xpe.desafio_final.data.domain;
 import com.xpe.desafio_final.data.enumeration.PersonTypeEnum;
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
@@ -10,6 +11,7 @@ import lombok.Setter;
     uniqueConstraints = @UniqueConstraint(columnNames = {"person_document", "person_type"}))
 @Getter
 @Setter
+@NoArgsConstructor
 public class Person {
     @Column(name = "person_id")
     @Id

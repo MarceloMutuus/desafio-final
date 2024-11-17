@@ -2,8 +2,8 @@ package com.xpe.desafio_final.api;
 
 import com.xpe.desafio_final.data.dto.PersonDTO;
 import com.xpe.desafio_final.facade.PersonFacade;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
-import org.springframework.aop.target.LazyInitTargetSource;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,12 +22,17 @@ public class PersonApi {
     }
 
     @PostMapping(value = "save")
-    public PersonDTO save(@RequestBody PersonDTO personDTO) {
+    public PersonDTO save(@Valid @RequestBody PersonDTO personDTO) {
         return personFacade.savePerson(personDTO);
     }
 
     @GetMapping(value = "find-all")
     public List<PersonDTO> findAll() {
         return personFacade.findAll();
+    }
+
+    @GetMapping(value = "find/{id}")
+    public PersonDTO findById(@PathVariable Long id) {
+        return personFacade.findById(id);
     }
 }

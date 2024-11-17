@@ -25,4 +25,8 @@ public class PersonFacade {
     public List<PersonDTO> findAll() {
         return personService.findAll();
     }
+
+    public PersonDTO findById(Long personId) {
+        return personService.findById(personId);
+    }
 }

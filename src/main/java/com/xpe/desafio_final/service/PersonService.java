@@ -1,5 +1,6 @@
 package com.xpe.desafio_final.service;
 
+import com.xpe.desafio_final.data.domain.Person;
 import com.xpe.desafio_final.data.dto.PersonDTO;
 import com.xpe.desafio_final.data.enumeration.PersonTypeEnum;
 import com.xpe.desafio_final.data.mapper.PersonMapper;
@@ -35,5 +36,12 @@ public class PersonService {
     public List<PersonDTO> findAll() {
         var personList= personRepository.findAll();
         return personMapper.toPersonDTOList(personList);
+    }
+
+    public PersonDTO findById(Long personId) {
+        var person = new Person();
+        var optional = personRepository.findById(personId);
+        if (optional.isPresent()) person = optional.orElseThrow();
+        return personMapper.toPersonDTO(person);
     }
 }
