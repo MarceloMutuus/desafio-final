@@ -31,8 +31,13 @@ public class PersonApi {
         return personFacade.findAll();
     }
 
-    @GetMapping(value = "find/{id}")
+    @GetMapping(value = "id/{id}")
     public PersonDTO findById(@PathVariable Long id) {
         return personFacade.findById(id);
+    }
+
+    @GetMapping(value = "name/{name}")
+    public PersonDTO findByName(@PathVariable String name) {
+        return personFacade.findByName(name);
     }
 }

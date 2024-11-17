@@ -44,4 +44,9 @@ public class PersonService {
         if (optional.isPresent()) person = optional.orElseThrow();
         return personMapper.toPersonDTO(person);
     }
+
+    public PersonDTO findByName(String personName) {
+        var person = personRepository.findByName(personName);
+        return personMapper.toPersonDTO(person);
+    }
 }
