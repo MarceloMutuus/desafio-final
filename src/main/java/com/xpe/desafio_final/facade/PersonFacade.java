@@ -1,5 +1,6 @@
 package com.xpe.desafio_final.facade;
 
+import com.xpe.desafio_final.data.dto.PersonDTO;
 import com.xpe.desafio_final.service.PersonService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -14,5 +15,9 @@ public class PersonFacade {
 
     public Map<String, Long> personCount() {
         return personService.toPersonCount();
+    }
+
+    public PersonDTO savePerson(PersonDTO personDTO) {
+        return personService.savePerson(personDTO);
     }
 }

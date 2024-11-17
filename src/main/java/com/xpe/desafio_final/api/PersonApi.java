@@ -1,10 +1,9 @@
 package com.xpe.desafio_final.api;
 
+import com.xpe.desafio_final.data.dto.PersonDTO;
 import com.xpe.desafio_final.facade.PersonFacade;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -20,5 +19,8 @@ public class PersonApi {
         return personFacade.personCount();
     }
 
-
+    @PostMapping(value = "save")
+    public PersonDTO save(@RequestBody PersonDTO personDTO) {
+        return personFacade.savePerson(personDTO);
+    }
 }
