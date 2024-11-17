@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -29,5 +30,10 @@ public class PersonService {
     public PersonDTO savePerson(PersonDTO personDTO) {
         var person = personRepository.save(personMapper.toPerson(personDTO));
         return personMapper.toPersonDTO(person);
+    }
+
+    public List<PersonDTO> findAll() {
+        var personList= personRepository.findAll();
+        return personMapper.toPersonDTOList(personList);
     }
 }

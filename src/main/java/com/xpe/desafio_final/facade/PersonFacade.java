@@ -5,6 +5,7 @@ import com.xpe.desafio_final.service.PersonService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Map;
 
 @Component
@@ -19,5 +20,9 @@ public class PersonFacade {
 
     public PersonDTO savePerson(PersonDTO personDTO) {
         return personService.savePerson(personDTO);
+    }
+
+    public List<PersonDTO> findAll() {
+        return personService.findAll();
     }
 }
