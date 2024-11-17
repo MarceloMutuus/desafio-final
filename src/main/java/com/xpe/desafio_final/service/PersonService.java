@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicLong;
 
 @Service
 @RequiredArgsConstructor
@@ -21,16 +22,24 @@ public class PersonService {
 
     public Map<String,Long> toPersonCount() {
         var personTypeMap = PersonTypeEnum.getPersonTypeMap();
+        AtomicLong totalCount = new AtomicLong(0);
         Map<String, Long> personCount = new HashMap<>();
         personTypeMap.forEach((typeKey,typeValue) -> {
-            personCount.put(typeValue, personRepository.typeCount(PersonTypeEnum.valueOf(typeKey)));
+            var count = personRepository.typeCount(PersonTypeEnum.valueOf(typeKey));
+            totalCount.getAndAdd(count);
+            personCount.put(typeValue, count);
         });
+        personCount.put("Total de Registros", totalCount.get());
         return personCount;
     }
 
     public PersonDTO savePerson(PersonDTO personDTO) {
         var person = personRepository.save(personMapper.toPerson(personDTO));
         return personMapper.toPersonDTO(person);
+    }
+
+    public void deletePerson(Long personId) {
+        personRepository.deleteById(personId);
     }
 
     public List<PersonDTO> findAll() {
@@ -45,8 +54,8 @@ public class PersonService {
         return personMapper.toPersonDTO(person);
     }
 
-    public PersonDTO findByName(String personName) {
+    public List<PersonDTO> findByName(String personName) {
         var person = personRepository.findByName(personName);
-        return personMapper.toPersonDTO(person);
+        return personMapper.toPersonDTOList(person);
     }
 }

@@ -22,6 +22,10 @@ public class PersonFacade {
         return personService.savePerson(personDTO);
     }
 
+    public void deletePerson(Long personId) {
+        personService.deletePerson(personId);
+    }
+
     public List<PersonDTO> findAll() {
         return personService.findAll();
     }
@@ -30,7 +34,7 @@ public class PersonFacade {
         return personService.findById(personId);
     }
 
-    public PersonDTO findByName(String personName) {
+    public List<PersonDTO> findByName(String personName) {
         return personService.findByName(personName);
     }
 }

@@ -26,6 +26,11 @@ public class PersonApi {
         return personFacade.savePerson(personDTO);
     }
 
+    @DeleteMapping("delete/{id}")
+    public void delete(@PathVariable Long id) {
+        personFacade.deletePerson(id);
+    }
+
     @GetMapping(value = "find-all")
     public List<PersonDTO> findAll() {
         return personFacade.findAll();
@@ -37,7 +42,7 @@ public class PersonApi {
     }
 
     @GetMapping(value = "name/{name}")
-    public PersonDTO findByName(@PathVariable String name) {
+    public List<PersonDTO> findByName(@PathVariable String name) {
         return personFacade.findByName(name);
     }
 }
