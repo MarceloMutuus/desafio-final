@@ -1,0 +1,143 @@
+{
+	"info": {
+		"_postman_id": "cc74ac65-151e-4d5a-9b33-e66cd8152c0b",
+		"name": "PÓS-XPe",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32494933",
+		"_collection_link": "https://speeding-crater-743474.postman.co/workspace/My-Workspace~7860eb31-cc86-4ade-80d2-615b955421c8/collection/32494933-cc74ac65-151e-4d5a-9b33-e66cd8152c0b?action=share&source=collection_link&creator=32494933"
+	},
+	"item": [
+		{
+			"name": "getCount",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/count",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"count"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/find-all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"find-all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/id/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"id",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/delete/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"delete",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findByName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/name/Mar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"name",
+						"Mar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "save",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"personId\": null,\r\n    \"personName\": \"Marcelo de Souza\",\r\n    \"personDocument\": \"11222333000144\",\r\n    \"personPhone\": \"11 98863-4781\",\r\n    \"personEmail\": \"marcelodesouza0016@gmail.com\",\r\n    \"personAddress\": {\r\n        \"addressId\": null,\r\n        \"address\": \"Rua 1\",\r\n        \"number\": \"1234\",\r\n        \"additionalData\": \"bloco A, apto 222\",\r\n        \"neighborhood\": \"Centro\",\r\n        \"zipCode\": \"09.123-456\",\r\n        \"country\": \"Brasil\",\r\n        \"state\": \"SP\",\r\n        \"city\": \"São Paulo\"\r\n    },\r\n    \"personType\": \"CUSTOMER\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"save"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
