@@ -29,7 +29,6 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.springframework:spring-jms:5.0.3.RELEASE'
 	implementation 'org.mapstruct:mapstruct:1.6.3'
-	implementation 'io.springfox:springfox-swagger-ui:3.0.0'
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'com.h2database:h2'

@@ -1,6 +1,5 @@
 package com.xpe.desafio_final.data.dto;
 
-import com.xpe.desafio_final.data.domain.Address;
 import com.xpe.desafio_final.data.enumeration.PersonTypeEnum;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
@@ -26,7 +25,7 @@ public class PersonDTO {
     @Email(message = "{person.email.invalid}")
     private String personEmail;
 
-    private Address personAddress;
+    private AddressDTO personAddress;
 
     @NotNull(message = "{person.type.not.null}")
     private PersonTypeEnum personType;
